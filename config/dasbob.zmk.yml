@@ -1,0 +1,11 @@
+file_format: "1"
+id: dasbob
+name: DASBOB
+type: shield
+url: https://github.com/nwhelan/DASBOB
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - dasbob_left
+  - dasbob_right
