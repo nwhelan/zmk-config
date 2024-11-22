@@ -1,13 +1,29 @@
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
+  - name: zmkfirmware
+    url-base: https://github.com/zmkfirmware
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
-    - name: zmk
-      remote: zmkfirmware
-      revision: main
-      import: app/west.yml
+  - name: zmk
+    remote: zmkfirmware
+    revision: main
+    import: app/west.yml
+  - name: zmk-fingerpunch-keyboards
+    url: https://github.com/sadekbaroudi/zmk-fingerpunch-keyboards
+    revision: main
+    path: modules/zmk-fingerpunch-keyboards
+  - name: zmk-fingerpunch-controllers
+    url: https://github.com/sadekbaroudi/zmk-fingerpunch-controllers
+    revision: main
+    path: modules/zmk-fingerpunch-controllers
+  - name: zmk-fingerpunch-vik
+    url: https://github.com/sadekbaroudi/zmk-fingerpunch-vik
+    revision: main
+    path: modules/zmk-fingerpunch-vik
+  - name: miryoku_zmk
+    url: https://github.com/manna-harbour/miryoku_zmk.git
+    revision: master
+    path: modules/miryoku_zmk
   self:
     path: config
