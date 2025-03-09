@@ -19,6 +19,9 @@ manifest:
   - name: zmk-rgbled-widget                     # <---
     remote: caksoylar                           # <---
     revision: main                              # <---
+  - name: prospector-zmk-module                 # <--- and these
+    remote: carrefinho                          # <---
+    revision: main                              # <---
   - name: zmk-fingerpunch-keyboards
     url: https://github.com/sadekbaroudi/zmk-fingerpunch-keyboards
     revision: main
