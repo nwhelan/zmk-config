@@ -20,6 +20,6 @@ include:
   - board: glove80_rh
   - board: seeeduino_xiao_ble
     shield: forager_left
-    snippet: studio-rpc-usb-uart
+    #snippet: studio-rpc-usb-uart
   - board: seeeduino_xiao_ble
     shield: forager_right
