@@ -11,16 +11,16 @@ layers:
   - I
   - O
   - P
-  - A
-  - S
-  - D
-  - F
+  - {t: A, h: LGUI}
+  - {t: S, h: LALT}
+  - {t: D, h: LCTRL}
+  - {t: F, h: LSHIFT}
   - G
   - H
-  - J
-  - K
-  - L
-  - ''''
+  - {t: J, h: RSHIFT}
+  - {t: K, h: RCTRL}
+  - {t: L, h: RALT}
+  - {t: '''', h: RGUI}
   - Z
   - X
   - C
@@ -46,16 +46,16 @@ layers:
   - U
   - Y
   - ;
-  - A
-  - R
-  - S
-  - T
+  - {t: A, h: LGUI}
+  - {t: R, h: LALT}
+  - {t: S, h: LCTRL}
+  - {t: T, h: LSHIFT}
   - G
   - M
-  - N
-  - E
-  - I
-  - O
+  - {t: N, h: RSHIFT}
+  - {t: E, h: RCTRL}
+  - {t: I, h: RALT}
+  - {t: O, h: RGUI}
   - Z
   - X
   - C
@@ -224,3 +224,27 @@ combos:
   k: TAB
 - p: [2, 3]
   k: ESCAPE
+- p: [7, 8]
+  k: '&macro_not_equal'
+  l: [qwerty, colemak-dh]
+- p: [17, 18]
+  k: '&macro_equal_equal'
+  l: [qwerty, colemak-dh]
+- p: [8, 9]
+  k: '&macro_arrow_right'
+  l: [qwerty, colemak-dh]
+- p: [18, 19]
+  k: '&macro_fat_arrow'
+  l: [qwerty, colemak-dh]
+- p: [28, 29]
+  k: '&macro_double_slash'
+  l: [qwerty, colemak-dh]
+- p: [27, 28]
+  k: '&macro_scope'
+  l: [qwerty, colemak-dh]
+- p: [26, 27]
+  k: '&macro_logical_or'
+  l: [qwerty, colemak-dh]
+- p: [16, 26]
+  k: '&macro_logical_and'
+  l: [qwerty, colemak-dh]
