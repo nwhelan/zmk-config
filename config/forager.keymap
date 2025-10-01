@@ -1,10 +1,19 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+// Layer definitions
+#define QWERTY 0
+#define COLEMAK 1
+#define NUM 2
+#define SYM 3
+#define FN 4
+#define NAV 5
+
 / {
     combos {
         compatible = "zmk,combos";
 
+        // Basic navigation combos
         del {
             bindings = <&kp DEL>;
             key-positions = <32 33>;
@@ -13,7 +22,7 @@
         dot {
             bindings = <&kp DOT>;
             key-positions = <30 31>;
-            layers = <2>;
+            layers = <NUM>;
         };
 
         enter {
@@ -35,9 +44,157 @@
             bindings = <&kp ESCAPE>;
             key-positions = <2 3>;
         };
+
+        // Programming combos
+        not_equal {
+            bindings = <&macro_not_equal>;
+            key-positions = <7 8>;
+            layers = <QWERTY COLEMAK>;
+        };
+
+        equal_equal {
+            bindings = <&macro_equal_equal>;
+            key-positions = <17 18>;
+            layers = <QWERTY COLEMAK>;
+        };
+
+        arrow_right {
+            bindings = <&macro_arrow_right>;
+            key-positions = <8 9>;
+            layers = <QWERTY COLEMAK>;
+        };
+
+        fat_arrow {
+            bindings = <&macro_fat_arrow>;
+            key-positions = <18 19>;
+            layers = <QWERTY COLEMAK>;
+        };
+
+        double_slash {
+            bindings = <&macro_double_slash>;
+            key-positions = <28 29>;
+            layers = <QWERTY COLEMAK>;
+        };
+
+        scope_resolution {
+            bindings = <&macro_scope>;
+            key-positions = <27 28>;
+            layers = <QWERTY COLEMAK>;
+        };
+
+        logical_or {
+            bindings = <&macro_logical_or>;
+            key-positions = <26 27>;
+            layers = <QWERTY COLEMAK>;
+        };
+
+        logical_and {
+            bindings = <&macro_logical_and>;
+            key-positions = <16 26>;
+            layers = <QWERTY COLEMAK>;
+        };
+    };
+
+    macros {
+        // Programming bigrams
+        macro_not_equal: macro_not_equal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings = <&kp EXCL &kp EQUAL>;
+        };
+
+        macro_equal_equal: macro_equal_equal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings = <&kp EQUAL &kp EQUAL>;
+        };
+
+        macro_arrow_right: macro_arrow_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings = <&kp MINUS &kp GT>;
+        };
+
+        macro_fat_arrow: macro_fat_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings = <&kp EQUAL &kp GT>;
+        };
+
+        macro_double_slash: macro_double_slash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings = <&kp FSLH &kp FSLH>;
+        };
+
+        macro_scope: macro_scope {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings = <&kp COLON &kp COLON>;
+        };
+
+        macro_logical_or: macro_logical_or {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings = <&kp PIPE &kp PIPE>;
+        };
+
+        macro_logical_and: macro_logical_and {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings = <&kp AMPS &kp AMPS>;
+        };
     };
 
     behaviors {
+        // Home row mods - left hand
+        hml: homerow_mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_LEFT";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&kp>;
+
+            // Hold triggers on right hand keys only (for bilateral combinations)
+            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 33>;
+            hold-trigger-on-release;
+        };
+
+        // Home row mods - right hand
+        hmr: homerow_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_RIGHT";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&kp>;
+
+            // Hold triggers on left hand keys only (for bilateral combinations)
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30>;
+            hold-trigger-on-release;
+        };
+
         auto_shift: auto_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "AUTO_SHIFT";
@@ -51,7 +208,7 @@
             compatible = "zmk,behavior-caps-word";
             label = "CAPS_NUMBER";
             #binding-cells = <0>;
-            continue-list = <NUMBER_1 NUMBER_2 NUMBER_3 NUMBER_4 NUMBER_5 NUMBER_6 NUMBER_7 NUMBER_8 NUMBER_9 NUMBER_0 MINUS EQUAL PLUS FSLH DOT>;
+            continue-list = <NUMBER_1 NUMBER_2 NUMBER_3 NUMBER_4 NUMBER_5 NUMBER_6 NUMBER_7 NUMBER_8 NUMBER_9 NUMBER_0 MINUS EQUAL PLUS FSLH DOT UNDERSCORE>;
         };
     };
 
@@ -60,10 +217,10 @@
 
         qwerty {
             bindings = <
-&kp Q  &kp W  &kp E  &kp R      &kp T    &kp Y  &kp U  &kp I      &kp O    &kp P
-&kp A  &kp S  &kp D  &kp F      &kp G    &kp H  &kp J  &kp K      &kp L    &kp SQT
-&kp Z  &kp X  &kp C  &kp V      &kp B    &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH
-                     &kp SPACE  &sl 2    &sl 5  &sl 4
+&kp Q       &kp W       &kp E        &kp R         &kp T     &kp Y   &kp U         &kp I         &kp O       &kp P
+&hml LGUI A &hml LALT S &hml LCTRL D &hml LSHIFT F &kp G     &kp H   &hmr RSHIFT J &hmr RCTRL K  &hmr RALT L &hmr RGUI SQT
+&kp Z       &kp X       &kp C        &kp V         &kp B     &kp N   &kp M         &kp COMMA     &kp DOT     &kp FSLH
+                                     &kp SPACE     &sl NUM   &sl NAV &sl FN
             >;
 
             label = "qwerty";
@@ -71,10 +228,10 @@
 
         colemak-dh {
             bindings = <
-&kp Q  &kp W  &kp F  &kp P   &kp B     &kp J   &kp L   &kp U      &kp Y    &kp SEMI
-&kp A  &kp R  &kp S  &kp T   &kp G     &kp M   &kp N   &kp E      &kp I    &kp O
-&kp Z  &kp X  &kp C  &kp D   &kp V     &kp K   &kp H   &kp COMMA  &kp DOT  &kp FSLH
-                     &trans  &trans    &trans  &trans
+&kp Q       &kp W       &kp F        &kp P         &kp B     &kp J   &kp L         &kp U         &kp Y       &kp SEMI
+&hml LGUI A &hml LALT R &hml LCTRL S &hml LSHIFT T &kp G     &kp M   &hmr RSHIFT N &hmr RCTRL E  &hmr RALT I &hmr RGUI O
+&kp Z       &kp X       &kp C        &kp D         &kp V     &kp K   &kp H         &kp COMMA     &kp DOT     &kp FSLH
+                                     &trans        &trans    &trans  &trans
             >;
         };
 
