@@ -1,0 +1,36 @@
+# Pre-commit/Prek hooks for ZMK config validation
+# Install prek: mise install prek
+# Setup: prek install
+# Run manually: prek run --all-files
+
+repos:
+  # General file checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: ^keymap-drawer/
+      - id: end-of-file-fixer
+        exclude: ^keymap-drawer/
+      - id: check-yaml
+        args: ['--unsafe']  # Allow custom YAML tags in build.yaml
+      - id: check-added-large-files
+        args: ['--maxkb=500']
+      - id: check-merge-conflict
+
+  # Custom ZMK validation hooks
+  - repo: local
+    hooks:
+      - id: zmk-keymap-validation
+        name: ZMK Keymap Validation
+        entry: .claude/scripts/validate-keymap.sh
+        language: script
+        files: '\.keymap$'
+        pass_filenames: true
+
+      - id: zmk-studio-check
+        name: ZMK Studio Compliance Check
+        entry: .claude/scripts/validate-studio.sh
+        language: script
+        files: '^build\.yaml$|\.keymap$'
+        pass_filenames: false
