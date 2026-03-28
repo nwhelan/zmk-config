@@ -31,8 +31,8 @@ layers:
   - ','
   - .
   - /
-  - {t: TAB, h: Media}
   - {t: SPACE, h: Nav}
+  - {t: TAB, h: Media}
   - {t: RET, h: Sym}
   - {t: BSPC, h: Num}
   Nav:
@@ -66,8 +66,8 @@ layers:
   - PG UP
   - END
   - INS
-  - ''
   - {type: held}
+  - ''
   - RET
   - BSPC
   Num:
@@ -136,8 +136,8 @@ layers:
   - ''
   - ''
   - ''
-  - {type: held}
   - ''
+  - {type: held}
   - PP
   - STOP
   Sym:
