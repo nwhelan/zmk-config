@@ -67,7 +67,7 @@ layers:
   - END
   - INS
   - {type: held}
-  - ''
+  - {t: ▽, type: trans}
   - RET
   - BSPC
   Num:
@@ -103,7 +103,7 @@ layers:
   - ''
   - .
   - '0'
-  - ''
+  - {t: ▽, type: trans}
   - {type: held}
   Media:
   - ''
@@ -136,7 +136,7 @@ layers:
   - ''
   - ''
   - ''
-  - ''
+  - {t: ▽, type: trans}
   - {type: held}
   - PP
   - STOP
@@ -174,10 +174,77 @@ layers:
   - (
   - )
   - {type: held}
+  - {t: ▽, type: trans}
+  Fun:
+  - F12
+  - F7
+  - F8
+  - F9
+  - PSCRN
   - ''
-  Fun: [F12, F7, F8, F9, PSCRN, '', '', '', '', '', F11, F4, F5, F6, SLCK, '', RSHFT, RCTRL, RALT, RGUI, F10, F1, F2, F3, PAUSE BREAK, '', '', '', '', '', TAB, SPACE,
-    '', '']
-  Mouse: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+  - ''
+  - ''
+  - ''
+  - ''
+  - F11
+  - F4
+  - F5
+  - F6
+  - SLCK
+  - ''
+  - RSHFT
+  - RCTRL
+  - RALT
+  - RGUI
+  - F10
+  - F1
+  - F2
+  - F3
+  - PAUSE BREAK
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: TAB, type: held}
+  - {t: SPACE, type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  Mouse:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {type: held}
   Sys:
   - '&bootloader'
   - ''
@@ -209,12 +276,14 @@ layers:
   - ''
   - ''
   - ''
-  - ''
-  - ''
-  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: Base, h: toggle}
 combos:
 - p: [30, 31]
-  k: ESC
+  k: {t: ESC, h: Fun}
+  l: [Base]
 - p: [32, 33]
-  k: DEL
+  k: {t: DEL, h: Mouse}
+  l: [Base]
