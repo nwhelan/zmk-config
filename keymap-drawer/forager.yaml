@@ -206,8 +206,8 @@ layers:
   - ''
   - ''
   - ''
-  - {t: TAB, type: held}
-  - {t: SPACE, type: held}
+  - {type: held}
+  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   Mouse:
@@ -290,3 +290,6 @@ combos:
 - p: [30, 31]
   k: .
   l: [Num]
+- p: [30, 31]
+  k: _
+  l: [Sym]
