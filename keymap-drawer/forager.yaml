@@ -101,7 +101,7 @@ layers:
   - ''
   - ''
   - ''
-  - .
+  - '-'
   - '0'
   - {t: ▽, type: trans}
   - {type: held}
@@ -287,3 +287,6 @@ combos:
 - p: [32, 33]
   k: {t: DEL, h: Mouse}
   l: [Base]
+- p: [30, 31]
+  k: .
+  l: [Num]
