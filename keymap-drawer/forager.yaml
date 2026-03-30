@@ -17,10 +17,10 @@ layers:
   - {t: F, h: LSHFT}
   - G
   - H
-  - {t: J, h: RSHFT}
-  - {t: K, h: RCTRL}
-  - {t: L, h: RALT}
-  - {t: '''', h: RGUI}
+  - {t: J, h: LSHFT}
+  - {t: K, h: LCTRL}
+  - {t: L, h: LALT}
+  - {t: '''', h: LGUI}
   - Z
   - X
   - C
@@ -87,10 +87,10 @@ layers:
   - '6'
   - '='
   - ''
-  - RSHFT
-  - RCTRL
-  - RALT
-  - RGUI
+  - LSHFT
+  - LCTRL
+  - LALT
+  - LGUI
   - '`'
   - '1'
   - '2'
@@ -157,10 +157,10 @@ layers:
   - ^
   - +
   - ''
-  - RSHFT
-  - RCTRL
-  - RALT
-  - RGUI
+  - LSHFT
+  - LCTRL
+  - LALT
+  - LGUI
   - '~'
   - '!'
   - '@'
@@ -192,10 +192,10 @@ layers:
   - F6
   - SLCK
   - ''
-  - RSHFT
-  - RCTRL
-  - RALT
-  - RGUI
+  - LSHFT
+  - LCTRL
+  - LALT
+  - LGUI
   - F10
   - F1
   - F2
