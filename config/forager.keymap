@@ -53,7 +53,7 @@
         base {
             bindings = <
 &kp Q       &kp W       &kp E        &kp R        &kp T          &kp Y      &kp U        &kp I        &kp O       &kp P
-&hm LGUI A  &hm LALT S  &hm LCTRL D  &hm LSHFT F  &kp G          &kp H      &hm RSHFT J  &hm RCTRL K  &hm RALT L  &hm RGUI APOS
+&hm LGUI A  &hm LALT S  &hm LCTRL D  &hm LSHFT F  &kp G          &kp H      &hm LSHFT J  &hm LCTRL K  &hm LALT L  &hm LGUI APOS
 &kp Z       &kp X       &kp C        &kp V        &kp B          &kp N      &kp M        &kp COMMA    &kp PERIOD  &kp FSLH
                                      &lt 1 SPACE    &lt 3 TAB    &lt 4 RET  &lt 2 BSPC
             >;
@@ -75,7 +75,7 @@
         num {
             bindings = <
 &kp LBKT   &kp N7  &kp N8  &kp N9  &kp RBKT     &none  &none      &none      &none     &to 7
-&kp SEMI   &kp N4  &kp N5  &kp N6  &kp EQUAL    &none  &kp RSHFT  &kp RCTRL  &kp RALT  &kp RGUI
+&kp SEMI   &kp N4  &kp N5  &kp N6  &kp EQUAL    &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
 &kp GRAVE  &kp N1  &kp N2  &kp N3  &kp BSLH     &none  &none      &none      &none     &none
                            &kp MINUS &kp N0     &trans &trans
             >;
@@ -97,7 +97,7 @@
         sym {
             bindings = <
 &kp LBRC   &kp AMPS  &kp ASTRK  &kp LPAR   &kp RBRC     &none  &none      &none      &none     &none
-&kp COLON  &kp DLLR  &kp PRCNT  &kp CARET  &kp PLUS     &none  &kp RSHFT  &kp RCTRL  &kp RALT  &kp RGUI
+&kp COLON  &kp DLLR  &kp PRCNT  &kp CARET  &kp PLUS     &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
 &kp TILDE  &kp EXCL  &kp AT     &kp HASH   &kp PIPE     &none  &none      &none      &none     &none
                                 &kp LPAR   &kp RPAR     &trans &trans
             >;
@@ -108,7 +108,7 @@
         fun {
             bindings = <
 &kp F12  &kp F7  &kp F8  &kp F9  &kp PSCRN        &none  &none      &none      &none     &none
-&kp F11  &kp F4  &kp F5  &kp F6  &kp SLCK         &none  &kp RSHFT  &kp RCTRL  &kp RALT  &kp RGUI
+&kp F11  &kp F4  &kp F5  &kp F6  &kp SLCK         &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
 &kp F10  &kp F1  &kp F2  &kp F3  &kp PAUSE_BREAK  &none  &none      &none      &none     &none
                          &trans  &trans           &trans &trans
             >;
