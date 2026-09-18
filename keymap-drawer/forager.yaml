@@ -32,7 +32,7 @@ layers:
   - {t: ., h: Sft+.}
   - {t: /, h: Sft+/}
   - SPACE
-  - {t: LSHFT, h: sticky}
+  - {t: LSHFT, h: sticky, s: '&caps_word'}
   - '&num_layer'
   - {t: DEL, h: nav}
   nav:
@@ -242,8 +242,8 @@ layers:
   - {t: ▽, type: trans}
   - '&bootloader'
   - {t: ▽, type: trans}
-  - {type: held}
-  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
 combos:
 - p: [16, 17]
@@ -287,7 +287,4 @@ combos:
   l: [base]
 - p: [30, 31]
   k: fn
-  l: [base]
-- p: [31, 32]
-  k: adj
   l: [base]
