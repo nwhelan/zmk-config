@@ -266,7 +266,6 @@ path.combo {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">LSHFT</text>
 <text x="0" y="24" class="key hold">sticky</text>
-<text x="0" y="-24" class="key shifted"><tspan style="font-size: 70%">&amp;caps_word</tspan></text>
 </g>
 <g transform="translate(364, 196)" class="key keypos-32">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -274,10 +273,8 @@ path.combo {
 </g>
 <g transform="translate(420, 196)" class="key keypos-33">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">DEL</text>
-<a href="#nav">
-<text x="0" y="24" class="key hold layer-activator">nav</text>
-</a></g>
+<text x="0" y="0" class="key tap"><tspan style="font-size: 88%">&amp;nav_del</tspan></text>
+</g>
 <g class="combo combopos-0">
 <rect rx="6" ry="6" x="434" y="71" width="28" height="26" class="combo"/>
 <text x="448" y="84" class="combo tap">ENTER</text>
@@ -497,8 +494,9 @@ path.combo {
 <a href="#sym">
 <text x="0" y="0" class="key tap layer-activator">sym</text>
 </a></g>
-<g transform="translate(420, 196)" class="key held keypos-33">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
+<g transform="translate(420, 196)" class="key trans keypos-33">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
 </g>
 <g class="combo combopos-0">
 <rect rx="6" ry="6" x="434" y="71" width="28" height="26" class="combo"/>
@@ -667,10 +665,10 @@ path.combo {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
 <text x="0" y="0" class="key held tap">LSHFT</text>
 </g>
-<g transform="translate(420, 196)" class="key held keypos-33">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
+<g transform="translate(420, 196)" class="key keypos-33">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <a href="#nav">
-<text x="0" y="0" class="key held tap layer-activator">nav</text>
+<text x="0" y="0" class="key tap layer-activator">nav</text>
 </a></g>
 </g>
 </g>

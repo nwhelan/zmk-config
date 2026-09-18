@@ -32,9 +32,9 @@ layers:
   - {t: ., h: Sft+.}
   - {t: /, h: Sft+/}
   - SPACE
-  - {t: LSHFT, h: sticky, s: '&caps_word'}
+  - {t: LSHFT, h: sticky}
   - '&num_layer'
-  - {t: DEL, h: nav}
+  - '&nav_del'
   nav:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -69,7 +69,7 @@ layers:
   - {t: ▽, type: trans}
   - LSHFT
   - sym
-  - {type: held}
+  - {t: ▽, type: trans}
   sym:
   - {t: '1', h: Sft+1}
   - {t: '2', h: Sft+2}
@@ -104,7 +104,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: LSHFT, type: held}
-  - {t: nav, type: held}
+  - nav
   num:
   - ''
   - {t: '7', h: Sft+7}
