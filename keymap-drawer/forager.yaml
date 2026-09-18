@@ -17,10 +17,10 @@ layers:
   - {t: F, h: LSHFT}
   - G
   - H
-  - {t: J, h: LSHFT}
-  - {t: K, h: LCTRL}
-  - {t: L, h: LALT}
-  - {t: '''', h: LGUI}
+  - {t: J, h: RSHFT}
+  - {t: K, h: RCTRL}
+  - {t: L, h: RALT}
+  - {t: '''', h: RGUI}
   - Z
   - X
   - C
@@ -31,21 +31,21 @@ layers:
   - {t: ',', h: 'Sft+,'}
   - {t: ., h: Sft+.}
   - {t: /, h: Sft+/}
-  - SPACE
-  - {t: LSHFT, h: sticky, s: '&caps_word'}
-  - '&num_layer'
-  - {t: DEL, h: nav}
+  - {t: ESC, h: media}
+  - {t: SPACE, h: nav}
+  - {t: ENTER, h: sym}
+  - {t: BSPC, h: num}
   nav:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - PAGE UP
-  - Ctl+PG UP
-  - UP
-  - Ctl+PG DN
-  - DELETE
+  - Ctl+Y
+  - Ctl+V
+  - Ctl+C
+  - Ctl+X
+  - Ctl+Z
   - LGUI
   - LALT
   - LCTRL
@@ -61,120 +61,15 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - HOME
   - PG DN
   - PG UP
   - END
+  - INS
   - {t: ▽, type: trans}
-  - LSHFT
-  - sym
   - {type: held}
-  sym:
-  - {t: '1', h: Sft+1}
-  - {t: '2', h: Sft+2}
-  - {t: '3', h: Sft+3}
-  - {t: '4', h: Sft+4}
-  - {t: '5', h: Sft+5}
-  - {t: '6', h: Sft+6}
-  - {t: '7', h: Sft+7}
-  - {t: '8', h: Sft+8}
-  - {t: '9', h: Sft+9}
-  - {t: '0', h: Sft+0}
-  - {t: '`', h: Sft+`}
-  - {t: LCTRL, h: sticky}
-  - {t: LALT, h: sticky}
-  - {t: LGUI, h: sticky}
-  - {t: Ctl+LALT, h: sticky}
-  - {t: \, h: Sft+\}
-  - {t: '-', h: Sft+-}
-  - {t: '=', h: Sft+=}
-  - {t: '[', h: 'Sft+['}
-  - {t: ']', h: 'Sft+]'}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ENTER
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: LSHFT, type: held}
-  - {t: nav, type: held}
-  num:
-  - ''
-  - {t: '7', h: Sft+7}
-  - {t: '8', h: Sft+8}
-  - {t: '9', h: Sft+9}
-  - ''
-  - ''
-  - {t: '7', h: Sft+7}
-  - {t: '8', h: Sft+8}
-  - {t: '9', h: Sft+9}
-  - ''
-  - ''
-  - {t: '4', h: Sft+4}
-  - {t: '5', h: Sft+5}
-  - {t: '6', h: Sft+6}
-  - ''
-  - ''
-  - {t: '4', h: Sft+4}
-  - {t: '5', h: Sft+5}
-  - {t: '6', h: Sft+6}
-  - ''
-  - ''
-  - {t: '1', h: Sft+1}
-  - {t: '2', h: Sft+2}
-  - {t: '3', h: Sft+3}
-  - ''
-  - ''
-  - {t: '1', h: Sft+1}
-  - {t: '2', h: Sft+2}
-  - {t: '3', h: Sft+3}
-  - ''
-  - {t: ., h: Sft+.}
-  - {t: '0', h: Sft+0}
-  - {t: '0', h: Sft+0, type: held}
-  - {t: ., h: Sft+., type: held}
-  fn:
-  - F12
-  - F7
-  - F8
-  - F9
-  - ''
-  - ''
-  - F7
-  - F8
-  - F9
-  - ''
-  - F11
-  - F4
-  - F5
-  - F6
-  - ''
-  - ''
-  - F4
-  - F5
-  - F6
-  - ''
-  - F10
-  - F1
-  - F2
-  - F3
-  - ''
-  - ''
-  - F1
-  - F2
-  - F3
-  - ''
-  - {type: held}
-  - {type: held}
-  - ''
-  - ''
+  - DEL
   media:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -206,11 +101,116 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - {type: held}
+  - MUTE
   - PP
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - STOP
-  adj:
+  sym:
+  - '{'
+  - '&'
+  - '*'
+  - (
+  - '}'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ':'
+  - $
+  - '%'
+  - ^
+  - +
+  - {t: ▽, type: trans}
+  - RSHFT
+  - RCTRL
+  - RALT
+  - RGUI
+  - '~'
+  - '!'
+  - '@'
+  - '#'
+  - '|'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - )
+  - _
+  - {type: held}
+  - {t: ▽, type: trans}
+  num:
+  - '['
+  - '7'
+  - '8'
+  - '9'
+  - ']'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ;
+  - '4'
+  - '5'
+  - '6'
+  - '='
+  - {t: ▽, type: trans}
+  - RSHFT
+  - RCTRL
+  - RALT
+  - RGUI
+  - '`'
+  - '1'
+  - '2'
+  - '3'
+  - \
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '0'
+  - '-'
+  - .
+  - {type: held}
+  fun:
+  - F12
+  - F7
+  - F8
+  - F9
+  - PSCRN
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - F11
+  - F4
+  - F5
+  - F6
+  - SLCK
+  - {t: ▽, type: trans}
+  - RSHFT
+  - RCTRL
+  - RALT
+  - RGUI
+  - F10
+  - F1
+  - F2
+  - F3
+  - PAUSE BREAK
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {type: held}
+  - SPACE
+  - TAB
+  sys:
   - {t: BT, h: '0'}
   - {t: BT, h: '1'}
   - {t: BT, h: '2'}
@@ -242,8 +242,8 @@ layers:
   - {t: ▽, type: trans}
   - '&bootloader'
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
+  - {type: held}
   - {t: ▽, type: trans}
 combos:
 - p: [16, 17]
@@ -282,9 +282,6 @@ combos:
 - p: [14, 13]
   k: END
   l: [base]
-- p: [32, 33]
-  k: num
-  l: [base]
 - p: [30, 31]
-  k: fn
+  k: fun
   l: [base]
