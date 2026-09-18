@@ -144,7 +144,6 @@
 		COMBO(end, &kp END, 14 13, BASE, 80, 50)
 		THUMB_COMBO(num_pad, &mo NUM, 32 33)
 		THUMB_COMBO(fn, &mo FN, 30 31)
-		THUMB_COMBO(media, &mo MEDIA, 31 32)
 	};
 	
 	conditional_layers {
