@@ -66,11 +66,14 @@
 			bindings = <&kp BSPC>, <&kp LA(BSPC)>;
 			mods = <(MOD_LSFT|MOD_RSFT)>;
 		};
-		smart_shift: smart_shift {
-			compatible = "zmk,behavior-mod-morph";
+		nav_del: nav_del {
+			compatible = "zmk,behavior-hold-tap";
 			#binding-cells = <0>;
-			bindings = <&sk LSHFT>, <&caps_word>;
-			mods = <(MOD_LSFT|MOD_RSFT)>;
+			flavor = "tap-preferred";
+			tapping-term-ms = <180>;
+			quick-tap-ms = <200>;
+			hold-while-undecided;
+			bindings = <&mo NAV>, <&kp DEL>;
 		};
 		sym_bspc: left_thumb_hold_tap {
 			compatible = "zmk,behavior-hold-tap";
@@ -115,6 +118,15 @@
 		layers = <LAYERS>; \
 		require-prior-idle-ms = <QUICKTAP>; \
 	};
+
+	#define THUMB_COMBO(NAME, BINDINGS, KEYPOS) \
+	combo_##NAME { \
+		timeout-ms = <120>; \
+		bindings = <BINDINGS>; \
+		key-positions = <KEYPOS>; \
+		layers = <BASE>; \
+		slow-release; \
+	};
 	
 	combos {
 		compatible = "zmk,combos";
@@ -130,9 +142,9 @@
 		COMBO(pg_dn, &kp PG_DN, 15 16, BASE, 80, 50)
 		COMBO(home, &kp HOME, 4 3, BASE, 80, 50)
 		COMBO(end, &kp END, 14 13, BASE, 80, 50)
-		COMBO(num_pad, &mo NUM, 32 33, BASE, 80, 50)
-		COMBO(fn, &mo FN, 30 31, BASE, 80, 50)
-		COMBO(media, &mo MEDIA, 31 32, BASE, 80, 50)
+		THUMB_COMBO(num_pad, &mo NUM, 32 33)
+		THUMB_COMBO(fn, &mo FN, 30 31)
+		THUMB_COMBO(media, &mo MEDIA, 31 32)
 	};
 	
 	conditional_layers {
@@ -157,7 +169,7 @@
 			&kp Q      	&kp W	&kp E	&kp R 	&kp T	&kp Y	&kp U      	&kp I	&kp O	&kp P    
 			HRM_L(A,     S,     D,     F)	&kp G	&kp H	    HRM_R(J,     K,     L,     APOS)
 			&kp Z	&kp X	&kp C	&kp V	&kp B	&kp N	&kp M	AS(COMMA)	AS(DOT)	AS(FSLH)
-			&kp SPACE	&smart_shift	&num_layer	&lt NAV DEL
+			&kp SPACE	&sk LSHFT	&num_layer	&nav_del
 			>;
 		};
 		
