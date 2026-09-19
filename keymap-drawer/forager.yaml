@@ -31,8 +31,8 @@ layers:
   - {t: ',', h: 'Sft+,'}
   - {t: ., h: Sft+.}
   - {t: /, h: Sft+/}
-  - {t: ESC, h: media}
   - {t: SPACE, h: nav}
+  - {t: TAB, h: media}
   - {t: ENTER, h: sym}
   - {t: BSPC, h: num}
   nav:
@@ -66,8 +66,8 @@ layers:
   - PG UP
   - END
   - INS
-  - {t: ▽, type: trans}
   - {type: held}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - DEL
   media:
@@ -101,8 +101,8 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
   - MUTE
+  - {type: held}
   - PP
   - STOP
   sym:
@@ -241,8 +241,8 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '&bootloader'
-  - {t: ▽, type: trans}
   - {type: held}
+  - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
 combos:
