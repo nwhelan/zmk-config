@@ -115,6 +115,15 @@
 		layers = <LAYERS>; \
 		require-prior-idle-ms = <QUICKTAP>; \
 	};
+
+	#define THUMB_COMBO(NAME, BINDINGS, KEYPOS) \
+	combo_##NAME { \
+		timeout-ms = <120>; \
+		bindings = <BINDINGS>; \
+		key-positions = <KEYPOS>; \
+		layers = <BASE>; \
+		slow-release; \
+	};
 	
 	combos {
 		compatible = "zmk,combos";
@@ -130,9 +139,8 @@
 		COMBO(pg_dn, &kp PG_DN, 15 16, BASE, 80, 50)
 		COMBO(home, &kp HOME, 4 3, BASE, 80, 50)
 		COMBO(end, &kp END, 14 13, BASE, 80, 50)
-		COMBO(num_pad, &mo NUM, 32 33, BASE, 80, 50)
-		COMBO(fn, &mo FN, 30 31, BASE, 80, 50)
-		COMBO(media, &mo MEDIA, 31 32, BASE, 80, 50)
+		THUMB_COMBO(num_pad, &mo NUM, 32 33)
+		THUMB_COMBO(fn, &mo FN, 30 31)
 	};
 	
 	conditional_layers {
