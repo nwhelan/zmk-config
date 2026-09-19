@@ -5,11 +5,11 @@
 
 #define BASE 0
 #define NAV	1
-#define SYM	2
-#define NUM 3
-#define FN 4
-#define ADJ	5
-#define MEDIA	6
+#define MEDIA	2
+#define SYM	3
+#define NUM	4
+#define FUN	5
+#define SYS	6
 
 #define ___ &trans
 #define XXX &none
@@ -139,15 +139,14 @@
 		COMBO(pg_dn, &kp PG_DN, 15 16, BASE, 80, 50)
 		COMBO(home, &kp HOME, 4 3, BASE, 80, 50)
 		COMBO(end, &kp END, 14 13, BASE, 80, 50)
-		THUMB_COMBO(num_pad, &mo NUM, 32 33)
-		THUMB_COMBO(fn, &mo FN, 30 31)
+		THUMB_COMBO(fun, &mo FUN, 30 31)
 	};
 	
 	conditional_layers {
 		compatible = "zmk,conditional-layers";
 		tri_layer {
-			if-layers = <1 2>;
-			then-layer = <3>;
+			if-layers = <NAV SYM>;
+			then-layer = <SYS>;
 		};
 	};
 	
@@ -155,7 +154,7 @@
 	&lhm LGUI PINKY &lhm LALT RING &lhm LCTRL MIDDLE &lhm LSHFT INDEX
 	
 	#define HRM_R(INDEX,MIDDLE,RING,PINKY) \
-	&rhm LSHFT INDEX &rhm LCTRL MIDDLE &rhm LALT RING &rhm LGUI PINKY
+	&rhm RSHFT INDEX &rhm RCTRL MIDDLE &rhm RALT RING &rhm RGUI PINKY
 	
 	keymap {
 		compatible = "zmk,keymap";
@@ -165,43 +164,16 @@
 			&kp Q      	&kp W	&kp E	&kp R 	&kp T	&kp Y	&kp U      	&kp I	&kp O	&kp P    
 			HRM_L(A,     S,     D,     F)	&kp G	&kp H	    HRM_R(J,     K,     L,     APOS)
 			&kp Z	&kp X	&kp C	&kp V	&kp B	&kp N	&kp M	AS(COMMA)	AS(DOT)	AS(FSLH)
-			&kp SPACE	&smart_shift	&num_layer	&lt NAV DEL
+			&lt NAV SPACE	&lt MEDIA TAB	&lt SYM ENTER	&lt NUM BSPC
 			>;
 		};
 		
 		nav {
 			bindings = <
-			___	___	___	___	___	&kp PAGE_UP	&kp LC(PG_UP)	&kp UP	&kp LC(PG_DN)	&kp DELETE
+			___	___	___	___	___	&kp LC(Y)	&kp LC(V)	&kp LC(C)	&kp LC(X)	&kp LC(Z)
 			&kp LGUI	&kp LALT	&kp LCTRL	&kp LSHIFT	___	&kp LEFT	&kp DOWN	&kp UP	&kp RIGHT	&kp CAPS
-			___	___	___	___	___	___	&kp HOME	&kp PG_DN	&kp PG_UP	&kp END
-			___	&kp LSHFT	&mo SYM	___
-			>;
-		};
-		
-		sym {
-			bindings = <
-			AS(N1)	AS(N2)	AS(N3)	AS(N4)	AS(N5)	AS(N6)	AS(N7)	AS(N8)	AS(N9)	AS(N0)
-			AS(GRAVE)	&sk LCTRL	&sk LALT	&sk LGUI	&sk LC(LALT)	AS(BSLH)	AS(MINUS)	AS(EQUAL)	AS(LBKT)	AS(RBKT)
-			___	___	___	___	___	___	___	___	___	&kp ENTER
-			___	___	&kp LSHFT	&mo NAV
-			>;
-		};
-		
-		num {
-			bindings = <
-			XXX	AS(N7)	AS(N8)	AS(N9)	XXX	XXX	AS(N7)	AS(N8)	AS(N9)	XXX
-			XXX	AS(N4)	AS(N5)	AS(N6)	XXX	XXX	AS(N4)	AS(N5)	AS(N6)	XXX
-			XXX	AS(N1)	AS(N2)	AS(N3)	XXX	XXX	AS(N1)	AS(N2)	AS(N3)	XXX
-			AS(DOT)	AS(N0)	AS(N0)	AS(DOT)
-			>;
-		};
-		
-		fn {
-			bindings = <
-			&kp F12	&kp F7	&kp F8	&kp F9	XXX	XXX	&kp F7	&kp F8	&kp F9	XXX
-			&kp F11	&kp F4	&kp F5	&kp F6	XXX	XXX	&kp F4	&kp F5	&kp F6	XXX
-			&kp F10	&kp F1	&kp F2	&kp F3	XXX	XXX	&kp F1	&kp F2	&kp F3	XXX
-			XXX	XXX	XXX	XXX
+			___	___	___	___	___	&kp HOME	&kp PG_DN	&kp PG_UP	&kp END	&kp INS
+			___	___	___	&kp DEL
 			>;
 		};
 		
@@ -210,11 +182,38 @@
 			___	___	___	___	___	___	___	___	___	___
 			&kp LGUI	&kp LALT	&kp LCTRL	&kp LSHIFT	___	&kp C_PREV	&kp C_VOL_DN	&kp C_VOL_UP	&kp C_NEXT	___
 			___	___	___	___	___	___	___	___	___	___
-			&kp C_PP	___	___	&kp C_STOP
+			&kp C_MUTE	___	&kp C_PP	&kp C_STOP
 			>;
 		};
 		
-		adj {
+		sym {
+			bindings = <
+			&kp LBRC	&kp AMPS	&kp ASTRK	&kp LPAR	&kp RBRC	___	___	___	___	___
+			&kp COLON	&kp DLLR	&kp PRCNT	&kp CARET	&kp PLUS	___	&kp RSHFT	&kp RCTRL	&kp RALT	&kp RGUI
+			&kp TILDE	&kp EXCL	&kp AT	&kp HASH	&kp PIPE	___	___	___	___	___
+			&kp RPAR	&kp UNDER	___	___
+			>;
+		};
+		
+		num {
+			bindings = <
+			&kp LBKT	&kp N7	&kp N8	&kp N9	&kp RBKT	___	___	___	___	___
+			&kp SEMI	&kp N4	&kp N5	&kp N6	&kp EQUAL	___	&kp RSHFT	&kp RCTRL	&kp RALT	&kp RGUI
+			&kp GRAVE	&kp N1	&kp N2	&kp N3	&kp BSLH	___	___	___	___	___
+			&kp N0	&kp MINUS	&kp DOT	___
+			>;
+		};
+		
+		fun {
+			bindings = <
+			&kp F12	&kp F7	&kp F8	&kp F9	&kp PSCRN	___	___	___	___	___
+			&kp F11	&kp F4	&kp F5	&kp F6	&kp SLCK	___	&kp RSHFT	&kp RCTRL	&kp RALT	&kp RGUI
+			&kp F10	&kp F1	&kp F2	&kp F3	&kp PAUSE_BREAK	___	___	___	___	___
+			___	___	&kp SPACE	&kp TAB
+			>;
+		};
+		
+		sys {
 			bindings = <
 			&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_CLR_ALL	&kp C_SLEEP	___	___	&kp C_BRI_DN	&kp C_BRI_UP
 			&studio_unlock	___	___	___	___	___	___	___	&kp C_VOL_DN	&kp C_VOL_UP
