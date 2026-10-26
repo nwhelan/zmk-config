@@ -11,13 +11,13 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: 9ebbeff0a8b69a42f14aec022cdf16c7a107b9e0
       import: app/west.yml
     - name: forager-zmk-module                    # <---
       remote: carrefinho                          # <---
-      revision: main                              # <---
+      revision: 3cafe6b7b26d7b538949e138fc00a148def4b2ed  # <---
     - name: zmk-rgbled-widget                     # <---
       remote: caksoylar                           # <---
-      revision: main                              # <---
+      revision: e6b467792a1dabef8cfa5c9fd26bfefc9c16662b  # <---
   self:
     path: config

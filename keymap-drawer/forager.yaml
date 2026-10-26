@@ -1,6 +1,6 @@
 layout: {zmk_keyboard: forager}
 layers:
-  qwerty:
+  Base:
   - Q
   - W
   - E
@@ -11,16 +11,16 @@ layers:
   - I
   - O
   - P
-  - A
-  - S
-  - D
-  - F
+  - {t: A, h: LGUI}
+  - {t: S, h: LALT}
+  - {t: D, h: LCTRL}
+  - {t: F, h: LSHFT}
   - G
   - H
-  - J
-  - K
-  - L
-  - ''''
+  - {t: J, h: RSHFT}
+  - {t: K, h: RCTRL}
+  - {t: L, h: RALT}
+  - {t: '''', h: RGUI}
   - Z
   - X
   - C
@@ -28,84 +28,84 @@ layers:
   - B
   - N
   - M
-  - ','
-  - .
-  - /
-  - SPACE
-  - {t: num, h: sticky}
-  - {t: nav, h: sticky}
-  - {t: fn, h: sticky}
-  colemak-dh:
-  - Q
-  - W
-  - F
-  - P
-  - B
-  - J
-  - L
-  - U
-  - Y
-  - ;
-  - A
-  - R
-  - S
-  - T
-  - G
-  - M
-  - N
-  - E
-  - I
-  - O
-  - Z
-  - X
-  - C
-  - D
-  - V
-  - K
-  - H
-  - ','
-  - .
-  - /
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  num:
-  - '['
-  - '7'
-  - '8'
-  - '9'
-  - ']'
+  - {t: ',', h: 'Sft+,'}
+  - {t: ., h: Sft+.}
+  - {t: /, h: Sft+/}
+  - {t: SPACE, h: Nav}
+  - {t: TAB, h: Media}
+  - {t: ENTER, h: Sym}
+  - {t: BSPC, h: Num}
+  Nav:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - ;
-  - '4'
-  - '5'
-  - '6'
-  - '='
-  - {t: ▽, type: trans}
-  - LSHFT
-  - LCTRL
-  - LALT
+  - Ctl+Y
+  - Ctl+V
+  - Ctl+C
+  - Ctl+X
+  - Ctl+Z
   - LGUI
-  - '`'
-  - '1'
-  - '2'
-  - '3'
-  - \
+  - LALT
+  - LCTRL
+  - LSHIFT
+  - {t: ▽, type: trans}
+  - LEFT
+  - DOWN
+  - UP
+  - RIGHT
+  - CAPS
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '0'
-  - {t: '-', type: held}
+  - HOME
+  - PG DN
+  - PG UP
+  - END
+  - INS
+  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  sym:
+  - DEL
+  Media:
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - LGUI
+  - LALT
+  - LCTRL
+  - LSHIFT
+  - {t: ▽, type: trans}
+  - PREV
+  - VOL DN
+  - VOL UP
+  - NEXT
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - MUTE
+  - {type: held}
+  - PP
+  - STOP
+  Sym:
   - '{'
   - '&'
   - '*'
@@ -122,10 +122,10 @@ layers:
   - ^
   - +
   - {t: ▽, type: trans}
-  - LSHFT
-  - LCTRL
-  - LALT
-  - LGUI
+  - RSHFT
+  - RCTRL
+  - RALT
+  - RGUI
   - '~'
   - '!'
   - '@'
@@ -138,14 +138,49 @@ layers:
   - {t: ▽, type: trans}
   - )
   - _
+  - {type: held}
+  - {t: ▽, type: trans}
+  Num:
+  - '['
+  - '7'
+  - '8'
+  - '9'
+  - ']'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  fn:
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ;
+  - '4'
+  - '5'
+  - '6'
+  - '='
+  - {t: ▽, type: trans}
+  - RSHFT
+  - RCTRL
+  - RALT
+  - RGUI
+  - '`'
+  - '1'
+  - '2'
+  - '3'
+  - \
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '0'
+  - '-'
+  - .
+  - {type: held}
+  Fun:
   - F12
   - F7
   - F8
   - F9
-  - PRINTSCREEN
+  - PSCRN
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -155,12 +190,12 @@ layers:
   - F4
   - F5
   - F6
-  - SCROLLLOCK
+  - SLCK
   - {t: ▽, type: trans}
-  - LSHFT
-  - LCTRL
-  - LALT
-  - LGUI
+  - RSHFT
+  - RCTRL
+  - RALT
+  - RGUI
   - F10
   - F1
   - F2
@@ -171,56 +206,82 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - {type: held}
-  nav:
+  - {type: held}
+  - SPACE
+  - TAB
+  Sys:
+  - {t: BT, h: '0'}
+  - {t: BT, h: '1'}
+  - {t: BT, h: '2'}
+  - {t: BT, h: '3'}
+  - BT CLR ALL
+  - SLEEP
+  - '&soft_off'
+  - {t: ▽, type: trans}
+  - BRI DN
+  - BRI UP
+  - '&studio_unlock'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - VOL DN
+  - VOL UP
   - '&bootloader'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - REDO
-  - PASTE
-  - COPY
-  - CUT
-  - UNDO
-  - LGUI
-  - LEFT ALT
-  - LCTRL
-  - LSHFT
-  - {t: ▽, type: trans}
-  - CAPS
-  - LEFT
-  - DOWN
-  - UP
-  - RIGHT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - '&bootloader'
+  - {type: held}
   - {t: ▽, type: trans}
-  - INSERT
-  - HOME
-  - PG DN
-  - PG UP
-  - END
+  - {type: held}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: RETURN, type: held}
-  - BACKSPACE
 combos:
-- p: [32, 33]
-  k: DEL
-- p: [30, 31]
-  k: .
-  l: [num]
 - p: [16, 17]
   k: ENTER
-- p: [6, 7]
-  k: BACKSPACE
-- p: [12, 13]
+  l: [Base, Nav, Num]
+- p: [1, 2]
+  k: BSPC
+  l: [Base, Nav, Num]
+- p: [0, 1]
+  k: ESC
+  l: [Base]
+- p: [10, 11]
   k: TAB
-- p: [2, 3]
-  k: ESCAPE
+  l: [Base]
+- p: [2, 12]
+  k: {t: '[', h: 'Sft+['}
+  l: [Base]
+- p: [3, 13]
+  k: (
+  l: [Base]
+- p: [6, 16]
+  k: )
+  l: [Base]
+- p: [7, 17]
+  k: {t: ']', h: 'Sft+]'}
+  l: [Base]
+- p: [5, 6]
+  k: PG UP
+  l: [Base]
+- p: [15, 16]
+  k: PG DN
+  l: [Base]
+- p: [4, 3]
+  k: HOME
+  l: [Base]
+- p: [14, 13]
+  k: END
+  l: [Base]
+- p: [30, 31]
+  k: Fun
+  l: [Base]
