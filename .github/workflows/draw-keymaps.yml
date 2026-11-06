@@ -1,23 +1,60 @@
-# Example for using the keymap-drawer ZMK user config workflow
 name: Draw ZMK keymaps
+
 on:
-  workflow_dispatch:  # can be triggered manually
-  push:               # automatically run on changes to following paths
+  workflow_dispatch:
+  push:
+    branches: [main]
     paths:
       - "config/*.keymap"
       - "config/*.dtsi"
+      - "config/*.json"
+      - "config/west.yml"
       - "keymap_drawer.config.yaml"
-      # - 'boards/*/*/*.keymap'
+      - ".github/workflows/draw-keymaps.yml"
 
 jobs:
   draw:
     uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
     permissions:
-      contents: write  # allow workflow to commit to the repo
+      contents: read
     with:
-      commit_message: "[Draw] ${{ github.event.head_commit.message }}"
-      keymap_patterns: "config/*.keymap"        # path to the keymaps to parse
-      config_path: "keymap_drawer.config.yaml"  # config file, ignored if not exists
-      output_folder: "keymap-drawer"            # path to save produced SVG and keymap YAML files
-      parse_args: ""  # map of extra args to pass to `keymap parse`, e.g. "corne:'-l Def Lwr Rse' cradio:''"
-      draw_args: ""   # map of extra args to pass to `keymap draw`, e.g. "corne:'-k corne_rotated' cradio:'-k paroxysm'"
+      keymap_patterns: "config/*.keymap"
+      config_path: "keymap_drawer.config.yaml"
+      output_folder: "keymap-drawer"
+      parse_args: ""
+      draw_args: ""
+      destination: artifact
+      artifact_name: drawings
+      fail_on_error: true
+
+  propose-updated-diagrams:
+    needs: draw
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Download generated diagrams
+        uses: actions/download-artifact@v7
+        with:
+          name: drawings
+          path: keymap-drawer
+
+      - name: Open or update diagram pull request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: automation/keymap-drawer
+          delete-branch: true
+          add-paths: |
+            keymap-drawer/*.svg
+            keymap-drawer/*.yaml
+          commit-message: "chore(keymap): regenerate diagrams"
+          title: "chore(keymap): regenerate diagrams"
+          body: |
+            Automated regeneration of ZMK keymap drawings from the latest
+            keymap on `main`. Generated files are kept in `keymap-drawer/`.
+
+            This PR replaces direct bot pushes to the protected `main` branch.
